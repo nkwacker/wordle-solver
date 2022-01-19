@@ -5,12 +5,12 @@ from colorama import Fore
 
 EXACT_MATCH = "X"
 WRONG_MATCH = "."
-NO_MATCH    = " "
+NO_MATCH = " "
 
 
 def get_result(guess: str, solution: str) -> str:
-    result = [NO_MATCH]*len(solution)
-    letter_used = [False]*len(solution)
+    result = [NO_MATCH] * len(solution)
+    letter_used = [False] * len(solution)
     # exact matches
     for i in range(len(solution)):
         if guess[i] == solution[i]:
@@ -69,4 +69,3 @@ class Game:
         result_str = get_result(guess=word, solution=self._solution)
         self._print_match_str(guess=word, match_str=result_str)
         return result_str
-

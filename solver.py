@@ -5,6 +5,7 @@ import time
 
 from progressbar import Bar, Percentage, ProgressBar
 
+
 def _pare_solution_set(soltion_set: List[str], guess: str, result: str):
     new_solutions = soltion_set.copy()
     for i in range(len(result)):
@@ -15,6 +16,7 @@ def _pare_solution_set(soltion_set: List[str], guess: str, result: str):
         elif result[i] == NO_MATCH:
             new_solutions = [solu for solu in new_solutions if solu.count(guess[i]) < guess.count(guess[i])]
     return new_solutions
+
 
 class Solver:
     def __init__(self) -> None:
@@ -68,4 +70,3 @@ class Solver:
         self._solution_set = _pare_solution_set(self._solution_set, guess, result)
         print(f"{len(self._solution_set)} solutions remain")
         self._total_compute_time += time.time() - start_time
-
