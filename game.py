@@ -28,13 +28,16 @@ def get_result(guess: str, solution: str) -> str:
 
 class Game:
     def __init__(self, turn_limit: int = 6, silent_errors: bool = False, dict_fpath: Optional[str] = None) -> None:
-        self._turn_counter = 0
         self._turn_limit = turn_limit
         self._silent_errors = silent_errors
         if dict_fpath is None:
             self._dictionary = load_dictionary()
         else:
             self._dictionary = load_dictionary(dict_fpath=dict_fpath)
+        self.reset()
+
+    def reset(self):
+        self._turn_counter = 0
         self._solution = random.sample(self._dictionary, k=1)[0]
 
     def _game_print(self, message: str):
