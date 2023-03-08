@@ -1,2 +1,4 @@
 __pycache__
+# file used by pyenv to denote version
+.python-version
 
